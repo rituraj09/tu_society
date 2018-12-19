@@ -18,12 +18,13 @@ class CreateVoucherMaster extends Migration
             $table->integer('id_financial', false, true);
             $table->string('voucher_no', 100);    
             $table->date('voucher_date');            
-            $table->integer('voucher_type')->references('id')->on('voucher_types');
+            $table->integer('voucher_type');
             $table->string('remarks', 1000)->nullable(); 
             $table->string('financial_year', 10)->nullable(); 
             $table->boolean('status')->default(1); 
             $table->integer('created_by', false, true); 
-            $table->timestamps('created_at');
+            $table->timestamps();
+            $table->foreign('voucher_type')->references('id')->on('voucher_types');
         });
     }
 
