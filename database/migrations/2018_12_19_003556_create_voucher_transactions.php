@@ -15,9 +15,9 @@ class CreateVoucherTransactions extends Migration
     {
         Schema::create('voucher_transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('voucher_id');
-            $table->integer('accounts_group_id');  
-            $table->integer('ledger_id');
+            $table->integer('voucher_id', false, true);
+            $table->integer('accounts_group_id', false, true);  
+            $table->integer('ledger_id', false, true);
             $table->unsignedDecimal('credit', 8, 2)->default(0);   
             $table->unsignedDecimal('debit', 8, 2)->default(0);    
             $table->boolean('status')->default(1);  
