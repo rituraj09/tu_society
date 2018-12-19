@@ -17,7 +17,7 @@ class CreateAccountsGroupsTable extends Migration
             $table->increments('id');
             $table->string('group_code', 100)->nullable();    
             $table->string('name', 200);            
-            $table->integer('group_under', false, true); 
+            $table->integer('group_under'); 
             $table->integer('head_id', false, true); 
             $table->string('narration', 400)->nullable(); 
             $table->boolean('status')->default(1); 

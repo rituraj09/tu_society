@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnInLedger extends Migration
+class CreateVoucherTypes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddColumnInLedger extends Migration
      */
     public function up()
     {
-        Schema::table('ledgers', function (Blueprint $table) {            
-            $table->integer('created_by')->after('active');
+        Schema::create('voucher_types', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 100);    
+            $table->boolean('status')->default(1);  
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddColumnInLedger extends Migration
      */
     public function down()
     {
-        Schema::table('ledgers', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('voucher_types');
     }
 }
