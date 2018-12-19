@@ -22,7 +22,7 @@ class CreateVouchers extends Migration
             $table->string('remarks', 1000)->nullable(); 
             $table->string('financial_year', 10)->nullable(); 
             $table->boolean('status')->default(1); 
-            $table->integer('created_by', false, true); 
+            $table->integer('created_by'); 
             $table->timestamps();
             $table->foreign('voucher_type_id')->references('id')->on('voucher_types');
         });

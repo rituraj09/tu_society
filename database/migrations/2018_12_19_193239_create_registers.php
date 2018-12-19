@@ -18,7 +18,7 @@ class CreateRegisters extends Migration
             $table->string('name', 100);
             $table->boolean('status')->default(1); 
             $table->boolean('is_active')->default(1); 
-            $table->integer('created_by', false, true); 
+            $table->integer('created_by'); 
             $table->timestamps();
         });
     }

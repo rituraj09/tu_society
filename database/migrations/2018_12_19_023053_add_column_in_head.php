@@ -14,7 +14,7 @@ class AddColumnInHead extends Migration
     public function up()
     {
         Schema::table('accounts_groups', function (Blueprint $table) {            
-            $table->integer('created_by', false, true)->after('active');
+            $table->integer('created_by')->after('active');
         });
     }
 

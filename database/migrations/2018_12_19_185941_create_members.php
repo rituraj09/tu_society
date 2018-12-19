@@ -22,7 +22,7 @@ class CreateMembers extends Migration
             $table->string('address', 300)->nullable(); 
             $table->string('bank_account_number', 100)->nullable(); 
             $table->string('bank_name', 100)->nullable();  
-            $table->integer('gender', false, true);// 1 - Male, 2 - Female
+            $table->integer('gender');// 1 - Male, 2 - Female
             $table->date('birth_date')->nullable();
             $table->date('joining_date')->nullable();      
             $table->string('email', 100)->nullable(); 
@@ -32,7 +32,7 @@ class CreateMembers extends Migration
             $table->integer('membership_status')->default(0); // 0 is member, 1 is retired, 2 is expired, 3 is in-actived but chances to be get membership again.     
             $table->date('exit_date')->nullable();  
             $table->boolean('status')->default(1); 
-            $table->integer('created_by', false, true); 
+            $table->integer('created_by'); 
             $table->timestamps(); 
         });
     }

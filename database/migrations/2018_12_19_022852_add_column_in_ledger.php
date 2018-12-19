@@ -14,7 +14,7 @@ class AddColumnInLedger extends Migration
     public function up()
     {
         Schema::table('ledgers', function (Blueprint $table) {            
-            $table->integer('created_by', false, true)->after('active');
+            $table->integer('created_by')->after('active');
         });
     }
 
