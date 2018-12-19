@@ -16,7 +16,7 @@ class CreateVoucherMaster extends Migration
         Schema::create('vouchers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_financial', false, true);
-            $table->string('voucher_no', 20);    
+            $table->string('voucher_number', 20);    
             $table->date('voucher_date');            
             $table->integer('voucher_type');
             $table->string('remarks', 1000)->nullable(); 
