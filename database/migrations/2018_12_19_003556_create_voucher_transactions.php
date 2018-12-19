@@ -15,13 +15,16 @@ class CreateVoucherTransactions extends Migration
     {
         Schema::create('voucher_transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('voucher_id')->references('id')->on('vouchers');
-            $table->integer('accounts_group_id')->references('id')->on('accounts_groups');  
-            $table->integer('ledger_id')->references('id')->on('ledgers');  
+            $table->integer('voucher_id');
+            $table->integer('accounts_group_id');  
+            $table->integer('ledger_id');
             $table->unsignedDecimal('credit', 8, 2)->default(0);   
             $table->unsignedDecimal('debit', 8, 2)->default(0);    
             $table->boolean('status')->default(1);  
             $table->timestamps();
+            $table->foreign('voucher_id')->references('id')->on('vouchers');
+            $table->foreign('accounts_group_id')->references('id')->on('accounts_groups');
+            $table->foreign('ledger_id')->references('id')->on('ledgers');
         });
     }
 
