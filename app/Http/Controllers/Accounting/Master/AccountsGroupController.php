@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Accounting\Master;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Accounting\AccountsGroup; 
 
 class AccountsGroupController extends Controller
 {
@@ -13,8 +14,13 @@ class AccountsGroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    { 
+        $where = [];
+        if($request->q) { 
+            $where[] = array('name', 'LIKE', trim($request->q).'%');
+        }
+        $accountgroup = AccountsGroup::where('status','1')->where($where)->orderBy('name', 'asc')->paginate(20); 
+        return view('master.accounting.view', compact('accountgroup','request')); 
     }
 
     /**
